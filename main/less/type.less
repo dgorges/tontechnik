@@ -1,0 +1,165 @@
+
+body, p, h1, h2, h3, h4, h5 {
+	font-family: @font-family-base;
+	color: @text-color;
+	font-weight: 400;
+	text-rendering: optimizeLegibility;
+	word-wrap: break-word;
+  	@media (min-width: @screen-md) {
+		&:first-child {
+			margin: 0;
+		}
+	}
+}
+
+
+p, input, textarea {
+	font-size: 14px;
+	line-height: 22px;
+	@media (min-width: @screen-sm) {
+		font-size: 20px;
+		line-height: 24px;
+	}
+	margin: @textmargin;
+	letter-spacing: 0.015em;
+	@media (min-width: @screen-md) {
+		font-size: 17px;
+		line-height: 24px;
+		letter-spacing: 0.015em;
+	}
+}
+a {
+	color: @gray-darker;
+	text-decoration: underline;
+	&:hover {
+		color: @brand-primary;
+		text-decoration: none;
+	}
+}
+
+::-webkit-input-placeholder {
+	color:@gray;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+:-moz-placeholder {
+	color:@gray;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+.placeholder {
+	color:@gray;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.lowercase {
+	text-transform: none;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.thin {
+	font-weight: 300;
+}
+
+.medium {
+	font-weight: 400;
+}
+
+.bold {
+	font-weight: 800;
+}
+
+h1,h2,h3,h4,h5 {
+	font-weight: @headings-font-weight;
+	margin: @headingsmargin;
+	font-weight: 600;
+	letter-spacing: -0.04em;
+	a {
+		text-decoration: none;
+		&:after {
+			content: "\e61e";
+			font-family: 'scheffe-functional';
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			font-size: 0.8em;
+			margin-left: 5px;
+
+			/* Better Font Rendering =========== */
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		&:hover {
+
+			color: @gray-darker;
+			text-decoration: none;
+		}
+	}
+}
+
+h1 {
+	color: @brand-primary;
+	font-size: 32px;
+	@media (min-width: @screen-sm) {
+	  	font-size: 42px;
+	  	line-height: 50px;
+	}
+	line-height: 40px;
+}
+
+h2 {
+  	color: @brand-primary;
+	font-size: 26px;
+	line-height: 33px;
+	@media (min-width: @screen-sm) {
+		font-size: 36px;
+		line-height: 43px;
+	}
+}
+
+h3 {
+	color: @darkgray;
+	font-size: 22px;
+	line-height: 28px;
+	@media (min-width: @screen-sm) {
+		font-size: 32px;
+		line-height: 38px;
+	}
+}
+
+h4 {
+	font-size: 18px;
+	line-height: 22px;
+	color: @text-color;
+	a {
+		color: @text-color;
+	}
+	@media (min-width: @screen-sm) {
+		font-size: 28px;
+		line-height: 32px;
+	}
+}
+
+h5 {
+	font-size: 14px;
+	line-height: 15px;
+	@media (min-width: @screen-sm) {
+		font-size: 24px;
+		line-height: 25px;
+	}
+}
+
+.b_textCenter {
+  	text-align: center;
+}

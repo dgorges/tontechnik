@@ -1,0 +1,33 @@
+<div class="row b_teaser calendar calendarUpcomming">
+	<div class="col-xs-12 col-sm-3 ">
+		<h2>Termine</h2>
+		<h4><f:link.page pageUid="102">Weitere Termine und Veranstaltungen im Kalender</f:link.page></h4>
+	</div>
+	<div class="col-sm-5 col-xs-12">
+		<f:if condition="{listView.master_array}">
+			<f:for each="{listView.master_array}" as="entriesOfADay" key="month">
+				<f:if condition="{month} >= 5">
+					<f:for each="{entriesOfADay}" as="entriesOfAnHour">
+						<f:for each="{entriesOfAnHour}" as="event">
+							<p data-caluid="{event.uid}"><b>{f:format.date(format:'d.m.Y' date: '{event.start.date}')}</b><br/>
+								{event.title}
+								<f:if condition="{event.allday}">
+									<f:then></f:then>
+									<f:else>
+										<f:format.date format='H:i'>@{event.start.time}</f:format.date> - <f:format.date format='H:i'>@{event.end.time}</f:format.date> Uhr
+									</f:else>
+								</f:if>
+								<f:if condition="{event.location}">
+									<br>{event.location}</f:if>
+								<f:if condition="{event.organizer}"><br><i>Ansprechpartner: </i>{event.organizer}</f:if>
+							</p>
+						</f:for>
+					</f:for>
+				</f:if>
+			</f:for>
+		</f:if>
+	</div>
+	<div class="col-sm-3 col-xs-12 b_textCenter">
+		<i class="icon-calendar"></i>
+	</div>
+</div>

@@ -1,0 +1,94 @@
+<section class="calendar row">
+	<div class="col-xs-12">
+		<div class="panel-group" id="accordion{contentObject.uid}">
+			<f:if condition="{listView.master_array}">
+				<f:for each="{listView.master_array}" as="entriesOfADay" key="day" iteration="j">
+					<f:if condition="{day} >= {f:format.date(format:'Ymd' date:'@{listView.starttime.time}')}">
+						<f:for each="{entriesOfADay}" as="entriesOfAnHour">
+							<f:for each="{entriesOfAnHour}" as="event" iteration="i">
+								<div class="panel event">
+									<div class="eventHeadline dgJS_accordionHeadline">
+										<a data-toggle="collapse" data-parent="#accordion{contentObject.uid}" href="#{event.start.time}">
+											<h3><i class="icon-calendar"></i> {event.title}<span class="eventDate">
+												<f:if condition="{event.allday}">
+													<f:then>
+														<!-- all day events -->
+														<f:if condition="{event.start.day} == {event.end.day}">
+															<f:then>
+																<f:if condition="{event.start.month} == {event.end.month}">
+																	<f:then>
+																		<f:if condition="{event.start.year} == {event.end.year}">
+																			<!-- single day event -->
+																			<f:then>
+																				<f:format.date format="%a. %d.%m.">{event.start.date}</f:format.date>
+																			</f:then>
+																			<!-- multi day event -->
+																			<f:else>
+																				<f:format.date format="%a. %d.%m.">{event.start.date}</f:format.date> -
+																				<f:format.date format="%a. %d.%m.">{event.end.date}</f:format.date>
+																			</f:else>
+																		</f:if>
+																	</f:then>
+																	<f:else>
+																		<f:format.date format="%a. %d.%m.">{event.start.date}</f:format.date> -
+																		<f:format.date format="%a. %d.%m.">{event.end.date}</f:format.date>
+																	</f:else>
+																</f:if>
+															</f:then>
+															<f:else>
+																<f:format.date format="%a. %d.%m.">{event.start.date}</f:format.date> -
+																<f:format.date format="%a. %d.%m.">{event.end.date}</f:format.date>
+															</f:else>
+														</f:if>
+													</f:then>
+													<f:else>
+														<!-- events with start/end times -->
+														<f:if condition="{event.start.day} == {event.end.day}">
+															<f:then>
+																<f:if condition="{event.start.month} == {event.end.month}">
+																	<f:then>
+																		<f:if condition="{event.start.year} == {event.end.year}">
+																			<f:then>
+																				<!-- single day event -->
+																				<f:format.date format="%a. %d.%m.">{event.start.date}</f:format.date> <f:format.date format="H:i">{event.start.time}</f:format.date> - <f:format.date format="H:i">{event.end.time}</f:format.date> Uhr
+																			</f:then>
+																		</f:if>
+																	</f:then>
+																	<f:else>
+																		<!-- multi day event -->
+																		<f:format.date format="%a. %d.%m.">{event.start.date}</f:format.date> <f:format.date format="H:i">{event.start.time}</f:format.date> Uhr -
+																		<f:format.date format="%a. %d.%m.">{event.end.date}</f:format.date> <f:format.date format="H:i">{event.end.time}</f:format.date> Uhr
+																	</f:else>
+																</f:if>
+															</f:then>
+															<f:else>
+																<!-- multi day event -->
+																<f:format.date format="%a. %d.%m.">{event.start.date}</f:format.date> <f:format.date format="H:i">{event.start.time}</f:format.date> Uhr -
+																<f:format.date format="%a. %d.%m.">{event.end.date}</f:format.date> <f:format.date format="H:i">{event.end.time}</f:format.date> Uhr
+															</f:else>
+														</f:if>
+													</f:else>
+												</f:if>
+												</span><span class="bg_accordionArrow"></span></h3>
+										</a>
+									</div>
+									<div id="{event.start.time}" class="panel-collapse collapse">
+										<div class="eventBody">
+											<dl>
+												<dt><i class="icon-office"></i> Titel:</dt><dd>{event.title}</dd>
+												<f:if condition="{event.allday}"><f:then></f:then><f:else><dt><i class="icon-clock"></i> Uhrzeit:</dt><dd><f:format.date format='H:i'>{event.start.time}</f:format.date> Uhr</dd></f:else></f:if>
+												<dt><i class="icon-location"></i> Veranstaltungsort:</dt><dd>{event.location}</dd>
+											</dl>
+											<f:format.html><i class="icon-book"></i>  {event.description}</f:format.html>
+											<p><f:link.page additionalParams="{type: 150, tx_cal_controller: '{view: \'event\',type: event.type, uid: event.uid, year: event.start.year, month: event.start.month, day: event.start.day}'}">Speichern <span class="icon-download"></span></f:link.page></p>
+										</div>
+									</div>
+								</div>
+							</f:for>
+						</f:for>
+					</f:if>
+				</f:for>
+			</f:if>
+		</div>
+	</div>
+</section>

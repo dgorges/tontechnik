@@ -1,0 +1,45 @@
+<!-- ###TEMPLATE_FORM1### begin -->
+<section class="contactform">
+	<form method="post" data-loadingMessage="Nachricht wird gesendet..." class="form-horizontal dgJS_loading" enctype="multipart/form-data" action="###REL_URL###">
+		<input type="hidden" name="###formValuesPrefix###[submitted]" value="1" />
+		<div class="form-group">
+			<div class="col-xs-12 col-sm-2">
+				<label for="###formValuesPrefix###[salutation]">Anrede *</label>
+				<input type="text" name="###formValuesPrefix###[salutation]" class="###is_error### form-control" id="###formValuesPrefix###[salutation]">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-12 col-sm-3">
+				<label for="###formValuesPrefix###[firstname]">Vorname</label>
+				<input type="text" name="###formValuesPrefix###[salutation]" class="form-control" id="###formValuesPrefix###[firstname]">
+			</div>
+			<div class="col-xs-12 col-sm-3">
+				<label for="###formValuesPrefix###[lastname]">Nachname *</label>
+				<input type="text" name="###formValuesPrefix###[lastname]" class="###is_error### form-control" id="###formValuesPrefix###[lastname]">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-12 col-sm-6">
+				<label for="###formValuesPrefix###[subject]">Betreff *</label>
+				<input type="text" name="###formValuesPrefix###[subject]" class="###is_error### form-control" id="###formValuesPrefix###[subject]">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-12 col-sm-6">
+				<label for="###formValuesPrefix###[message]">Nachricht *</label>
+				<textarea id="###formValuesPrefix###[message]" class="###is_error### form-control" name="###formValuesPrefix###[message]"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<p><small>Die mit * gekennzeichneten Felder bitte ausfüllen.</small></p>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-12 col-sm-6">
+				<button class="btn btn-primary btn-block radiusNone">Senden</button>
+			</div>
+		</div>
+	</form>
+</section>
+<!-- ###TEMPLATE_FORM1### end -->

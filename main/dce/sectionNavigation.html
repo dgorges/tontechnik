@@ -1,0 +1,17 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<nav>
+	<f:if condition="{field.headline}">
+		<f:then>
+			<h3>{field.headline}</h3>
+		</f:then>
+		<f:else>
+			<h3>Aktuelles</h3>
+		</f:else>
+	</f:if>
+	<ul class="sideNav js_sectionNav">
+		<f:cObject typoscriptObjectPath="lib.dce.sectionIndex" />
+	</ul>
+</nav>
+
+
+

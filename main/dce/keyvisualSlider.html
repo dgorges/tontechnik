@@ -1,0 +1,10 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<div class="b_keyvisualSlider">
+	<div class="bJS_owlslides b_shadow">
+		<f:for each="{field.sliderSection}" as="slide" iteration="i">
+			<div class="item b_" id="bJS_slide{i.index}">
+				<img class="b_image lazyOwl" data-src='<f:uri.image src="uploads/pics/{slide.image}" height="350c" width="1400" />' class="b_image" alt="Keyvisual" />
+			</div>
+		</f:for>
+	</div>
+</div>

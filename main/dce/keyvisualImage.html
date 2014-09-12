@@ -1,0 +1,13 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<div class="b_keyvisualImage">
+	<f:if condition="{field.keyvisualLink}">
+		<f:then>
+			<f:link.page pageUid="{field.keyvisualLink}">
+				<f:image src="uploads/pics/{field.keyvisualImage}" class="b_image b_shadow" width="967" alt="Keyvisual" />
+			</f:link.page>
+		</f:then>
+		<f:else>
+			<f:image src="uploads/pics/{field.keyvisualImage}" class="b_image b_shadow" width="967" alt="Keyvisual" />
+		</f:else>
+	</f:if>
+</div>

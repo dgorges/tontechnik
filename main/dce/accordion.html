@@ -1,0 +1,19 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<div class="b_accordion bG_ce">
+	<div class="panel-group" id="accordion{contentObject.uid}">
+		<f:for each="{field.accordionSection}" as="element" iteration="i">
+			<div class="panel b_accordionElement">
+				<div class="b_accordionHeadline bJS_accordionHeadline {f:if(condition:'{element.accordionStatus}',then:'active',else:'')}">
+					<a data-toggle="collapse" data-parent="#accordion{contentObject.uid}" href="#{i.index}">
+						<h3>{element.accordionHeadline} <span class="b_arrowSprite"></span></h3>
+					</a>
+				</div>
+				<div id="{i.index}" class="panel-collapse collapse {f:if(condition:'{element.accordionStatus}',then:'in',else:'')}">
+					<div class="b_accordionBody">
+						<f:format.html>{element.accordionDesc}</f:format.html>
+					</div>
+				</div>
+			</div>
+		</f:for>
+	</div>
+</div>
